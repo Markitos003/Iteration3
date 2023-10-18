@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1 class="center-heading">Log in - Producer</h1>
+
+  <div class="form-container">
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      <br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <p id="formMessage"></p>
+</body>
+
+</html>
+
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.center-heading {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.form-container {
+  text-align: center;
+}
+
+form {
+  font-size: 30px;
+  width: 350px;
+  padding: 5px;
+  background-color: #1db99f;
+  color: #fff;
+  text-align: center;
+}
+
+var myForm = document.getElementById("myForm");
+myForm.onsubmit = function (event) {
+  event.preventDefault();
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var formMessage = document.getElementById("formMessage");
+
+  if (name && email) {
+    formMessage.textContent = `Form submitted successfully. Name: ${name}, Email: ${email}`;
+  } else {
+    formMessage.textContent = "Please complete all required fields.";
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  window.alert("DOM Content is fully loaded");
+});
+
+setTimeout(function () {
+  window.alert("Be quicker!");
+}, 10000);
